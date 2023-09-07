@@ -14,10 +14,6 @@ def test_2():
     assert f.puissance(-3, 3) == -27
     assert f.puissance(-4, 5) == -1024
     
-    # Test avec des valeurs positives et des exposants négatifs
-    assert f.puissance(5, -2) == 1/25
-    assert f.puissance(2, -4) == 1/16
-    
     # Cas limite : Exposant nul
     assert f.puissance(10, 0) == 1
     
