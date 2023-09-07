@@ -19,4 +19,3 @@ def puissance(a, b):
 
     # Retourne le résultat du calcul de la puissance
     return resultat
-
