@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
       - name: Set up Python for Demo
         uses: actions/setup-python@v4
         
@@ -13,4 +14,9 @@ jobs:
         
       - name: Run tests
         run: pytest TP1/test.py
-
+      
+      - name: Display Branch Name
+        run: echo "Nom de la branche : ${{ github.ref }}"
+      
+      - name: Display OS
+        run: echo "Système d'exploitation de la VM : ${{ runner.os }}"
