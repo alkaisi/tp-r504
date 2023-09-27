@@ -3,20 +3,26 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.10"]
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Set up Python for Demo
         uses: actions/setup-python@v4
-        
+        with:
+          python-version: ${{ matrix.python-version }}
+
       - name: Install pytest
         run: pip install pytest
-        
+
       - name: Run tests
         run: pytest TP1/test.py
-      
+
       - name: Display Branch Name
         run: echo "Nom de la branche ${{ github.ref }}"
-      
+
       - name: Display OS
         run: echo "Système d'exploitation de la VM ${{ runner.os }}"
+
