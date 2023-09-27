@@ -29,3 +29,8 @@ def test_2():
     # Cas limite : Base négative, exposant impair
     assert f.puissance(-2, 3) == -8
 
+def test_3():
+    # Cas limite : Base nulle, exposant négatif (avec une exception)
+    with pytest.raises(ValueError):
+        f.puissance(0, -5)
+
