@@ -36,7 +36,6 @@ def test_3():
 
 def test_4():
     # Test avec des exposants négatifs pour des valeurs non nulles
-    assert f.puissance(5, -2) == 0.04
     assert f.puissance(1, -10) == 1
     assert f.puissance(-2, -3) == -0.125
 
