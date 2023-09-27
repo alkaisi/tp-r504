@@ -34,3 +34,26 @@ def test_3():
     with pytest.raises(ValueError):
         f.puissance(0, -5)
 
+def test_4():
+    # Test avec des exposants négatifs pour des valeurs non nulles
+    assert f.puissance(5, -2) == 0.04
+    assert f.puissance(1, -10) == 1
+    assert f.puissance(-2, -3) == -0.125
+
+def test_5():
+    # Test avec des exposants positifs pour des valeurs non nulles
+    assert f.puissance(3, 5) == 243
+    assert f.puissance(2, 6) == 64
+    assert f.puissance(10, 3) == 1000
+
+def test_6():
+    # Test avec des exposants négatifs pour des valeurs négatives
+    assert f.puissance(-3, -2) == 0.1111111111111111
+    assert f.puissance(-1, -4) == 1
+    assert f.puissance(-4, -3) == -0.015625
+
+def test_7():
+    # Test avec des exposants positifs pour des valeurs négatives
+    assert f.puissance(-3, 4) == 81
+    assert f.puissance(-2, 5) == -32
+    assert f.puissance(-10, 3) == -1000
