@@ -16,7 +16,7 @@ jobs:
         run: pytest TP1/test.py
       
       - name: Display Branch Name
-        run: echo "Nom de la branche : ${{ github.ref }}"
+        run: echo "Nom de la branche ${{ github.ref }}"
       
       - name: Display OS
-        run: echo "Système d'exploitation de la VM : ${{ runner.os }}"
+        run: echo "Système d'exploitation de la VM ${{ runner.os }}"
