@@ -32,4 +32,18 @@ Q1.13 - git log --format="%an" | sort | uniq | wc -l
 
 -------------------------------------------------------------------------------------------
 
-Q2.1 -	
+Q2.1 -	git status
+
+Q2.2 -	main
+
+Q2.3 -	Fait
+
+Q2.4 -	Fait
+
+Q2.5 - 	Oui
+
+Q2.6 -	Non
+
+Q2.7 - 	Cette commande affichera les changements des fichiers non encore enregistrés
+
+Q2.8 -	
