@@ -42,4 +42,6 @@ Q2.4 -	C'est fait
 
 Q2.5 -	Oui
 
-Q2.6 -	
+Q2.6 -	Non
+
+Q2.7 -	
