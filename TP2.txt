@@ -34,7 +34,7 @@ Q1.13 - git log --format="%an" | sort | uniq | wc -l
 
 Q2.1 -	git status
 
-Q2.1 -	main
+Q2.2 -	main
 
 Q2.3 -	C'est fait
 
