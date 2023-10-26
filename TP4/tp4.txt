@@ -105,3 +105,7 @@ docker run -d \
     im-tp4
 
 2.11
+C'est fait
+
+2.12
+Création de Dockerfile2, build_image2.sh et run-app.sh
