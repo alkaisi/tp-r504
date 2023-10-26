@@ -44,4 +44,6 @@ Q2.5 -	Oui
 
 Q2.6 -	Non
 
-Q2.7 -	
+Q2.7 -	La commande git diff affiche les différences entre les fichiers dans votre espace de travail (ou working directory) et ceux dans l'index de git (la dernière version commitée). 
+
+Q2.8 - 	C'est fait
