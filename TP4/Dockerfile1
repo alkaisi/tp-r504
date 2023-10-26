@@ -1,11 +1,17 @@
 # Utiliser l'image Debian 11 comme base
 FROM debian:11
 
-# Mettre à jour les paquets et installer les paquets Debian nécessaires
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y build-essential pkg-config python-dev python3-pip default-libmysqlclient-dev && \
-    pip3 install --upgrade pip && \
-    pip3 install flask-mysqldb mysql-connector-python
+# Mettre à jour les paquets
+RUN apt-get update && apt-get upgrade -y
+
+# Installer les paquets Debian nécessaires
+RUN apt-get install -y build-essential pkg-config python-dev python3-pip default-libmysqlclient-dev
+
+# Mettre à jour pip
+RUN pip3 install --upgrade pip
+
+# Installer les paquets Python nécessaires
+RUN pip3 install flask-mysqldb mysql-connector-python
 
 # Créer un dossier pour les templates
 RUN mkdir /srv/templates
