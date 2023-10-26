@@ -1,0 +1,98 @@
+2.1. #!/bin/bash
+
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+
+2.2
+#!/bin/bash
+
+# Arrête et supprime tous les conteneurs
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+
+# Supprime tous les réseaux inutilisés
+docker network prune -f
+
+# Supprime tous les volumes inutilisés
+docker volume prune -f
+
+# Supprime toutes les images inutilisées
+docker image prune -f
+
+# Supprime tous les "build cache" inutilisés
+docker builder prune -f
+
+2.3
+#!/bin/bash
+
+# Crée un réseau de type bridge nommé net-tp4
+docker network create --driver bridge net-tp4
+
+2.4
+#!/bin/bash
+
+# Lancement du serveur MySQL dans un conteneur Docker
+docker run --rm -d \
+-p 3307:3306 \
+-v vol-sql-demo:/var/lib/mysql \
+--name tp4-sql \
+--env MYSQL_ROOT_PASSWORD=foo \
+--network net-tp4 \
+mysql
+
+2.5
+CREATE DATABASE demosql;
+USE demosql;
+CREATE TABLE myTable (
+    id int AUTO_INCREMENT,
+    name varchar(45) NOT NULL,
+    PRIMARY KEY (id)
+);
+INSERT INTO myTable (id, name) VALUES (NULL, 'bob');
+INSERT INTO myTable (id, name) VALUES (NULL, 'alice');
+
+2.6
+#!/bin/bash
+
+# Remplissage de la BDD via les commandes du fichier data.sql
+mysql -u root -p'foo' -h 127.0.0.1 --port=3307 < data.sql
+
+2.7
+mysql -u root -p'foo' -h 127.0.0.1 --port=3307
+C'est fait
+
+2.8
+# Utiliser l'image Debian 11 comme base
+FROM debian:11
+
+# Mettre à jour les paquets et installer les paquets Debian nécessaires
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y build-essential pkg-config python-dev python3-pip default-libmysqlclient-dev && \
+    pip3 install --upgrade pip && \
+    pip3 install flask-mysqldb mysql-connector-python
+
+# Créer un dossier pour les templates
+RUN mkdir /srv/templates
+
+# Copier les fichiers nécessaires dans l'image
+COPY index.html /srv/templates/
+COPY app1.py /srv/
+
+# Définir la commande à exécuter lorsque le conteneur démarre
+CMD ["flask", "--app", "/srv/app1", "run", "--host=0.0.0.0"]
+
+2.9
+#!/bin/bash
+
+# Construire l'image à partir du Dockerfile1
+docker build -t im-tp4 -f Dockerfile1 .
+
+# Afficher la taille des images
+echo "Taille de l'image Debian11:"
+docker images debian:11 --format "{{.Size}}"
+
+echo "Taille de votre image im-tp4:"
+docker images im-tp4 --format "{{.Size}}"
+
+2.10
+
